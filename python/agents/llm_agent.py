@@ -1,4 +1,5 @@
 from ..llm_inference import LLMInference
+from typing import List
 
 class LLMAgent:
     def __init__(self):
@@ -6,3 +7,6 @@ class LLMAgent:
 
     def generate(self, prompt: str) -> str:
         return self.llm.generate(prompt)
+
+    def batch_generate(self, prompts: List[str]) -> List[str]:
+        return self.llm.generate(prompts)
