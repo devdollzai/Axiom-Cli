@@ -1,0 +1,12 @@
+transformers
+sentence-transformers
+torch
+accelerate
+qdrant-client
+gitoxide
+octocrab
+numpy
+scipy
+tabulate
+pillow
+requests

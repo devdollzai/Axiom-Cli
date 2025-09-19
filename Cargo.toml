@@ -1,0 +1,15 @@
+[workspace]
+members = [
+    "axion-core",
+    "meta-compiler",
+    "protocol-agent",
+    "axion-cli"
+]
+
+[workspace.dependencies]
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+ark-groth16 = "0.5"
+pqc-dilithium = "0.1"
+rs-merkle = "1.4"
+wasm-bindgen = "0.2"
