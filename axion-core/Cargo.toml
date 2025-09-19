@@ -1,15 +1,14 @@
 [package]
 name = "axion-core"
 version = "0.1.0"
-edition = "2024"
+edition = "2021"
 
 [dependencies]
-workspace = true
 tokio = { workspace = true }
 serde = { workspace = true }
 ark-groth16 = { workspace = true }
-pqc-dilithium = { workspace = true }
-rs-merkle = { workspace = true }
+pqc_dilithium = { workspace = true }
+rs_merkle = { workspace = true }
 gitoxide = "0.30"
 octocrab = "0.20"
 pyo3 = { version = "0.20", features = ["auto-initialize"] }

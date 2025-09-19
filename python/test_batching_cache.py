@@ -75,12 +75,15 @@ class MockModel:
     def generate(self, input_ids=None, max_length=512, **kwargs):
         if input_ids is None:
             input_ids = kwargs.get("input_ids")
-        if input_ids and input_ids.dim() == 1:
+        if input_ids and hasattr(input_ids, 'dim') and input_ids.dim() == 1:
             return MockTensor([[1, 2, 3, 4]])
-        else:
+        elif input_ids and hasattr(input_ids, 'shape'):
             # Batch
             batch_size = input_ids.shape[0] if input_ids else 1
             return MockTensor([[1, 2, 3, 4]] * batch_size)
+        else:
+            # Mock case
+            return MockTensor([[1, 2, 3, 4]])
 
     def to(self, device):
         return self

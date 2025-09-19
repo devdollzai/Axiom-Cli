@@ -11,8 +11,27 @@ import logging
 
 # Mock the transformers import to avoid dependency issues during testing
 class MockTokenizer:
+    def __init__(self):
+        self.pad_token = "[PAD]"
+        self.eos_token = "[EOS]"
+
     def __call__(self, prompt, return_tensors="pt"):
         return {"input_ids": [[1, 2, 3]]}
+
+    def decode(self, outputs, skip_special_tokens=True):
+        if hasattr(outputs, 'data'):
+            data = outputs.data
+            if isinstance(data, list) and len(data) > 1:
+                return [f"Mock response {i}" for i in range(len(data))]
+            else:
+                return "Mock response"
+        elif isinstance(outputs, list):
+            if len(outputs) == 1:
+                return "Mock response"
+            else:
+                return [f"Mock response {i}" for i in range(len(outputs))]
+        else:
+            return "Mock response"
 
 class MockModel:
     def generate(self, inputs, max_length=512):
