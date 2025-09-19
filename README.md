@@ -1,4 +1,5 @@
-# Sovereign Axion
+# Sovereign Axiom
+@DevDollzAi / @AxiomHive
 
 A high-performance hybrid Python/Rust framework for AI agent orchestration, LLM inference, and distributed computing.
 
